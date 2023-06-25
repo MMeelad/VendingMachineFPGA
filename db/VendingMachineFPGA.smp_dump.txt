@@ -1,0 +1,6 @@
+
+State Machine - |Top_Module_Vending_Machine|Seven_Seg_Driver:SSD|state
+Name state.LEFT state.MIDRIGHT state.MIDLEFT 
+state.LEFT 0 0 0 
+state.MIDLEFT 1 0 1 
+state.MIDRIGHT 1 1 0 

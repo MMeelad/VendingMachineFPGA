@@ -1,0 +1,136 @@
+module VendingMachine(
+	input clk,		//100MHz
+	input reset,	
+	input quarter,	//25 cents
+	input dollar,	//100 cents
+	input [3:0] select,	//product selector
+	input buy,				//buy product
+	input [3:0] load,		//restock products
+	
+	output reg [11:0] money = 0,		//money withdrawn from vending machine
+	output reg [3:0] products = 0,	//product that will be dispensed 
+	output reg [3:0] out_of_stock = 0	//initially all products are stocked
+);
+
+
+	reg quarter_prev, dollar_prev;
+	reg buy_prev;
+	//stock is full initially
+	reg[3:0] stock0=4'b1111; //15 gum
+	reg[3:0] stock1=4'b1111; //15 candy
+	reg[3:0] stock2=4'b1111; //15 chips
+	reg[3:0] stock3=4'b1111; //15 drinks
+
+	
+	always @ (posedge clk)
+	
+	begin
+	quarter_prev <= quarter;
+	dollar_prev <= dollar;
+	buy_prev <= buy;
+	
+	if(reset == 1)		//7seg shows 0
+	money <= 1'b0;
+	
+	else if(quarter_prev == 1'b0 && quarter == 1'b1)
+	money <= money + 12'd25;		//insert 25 cents
+	
+	else if(dollar_prev == 1'b0 && dollar == 1'b1)
+	money <= money +12'd100;		//insert 100 cents
+	
+	case(select)
+	
+	4'b0001: 	//buy gum
+	
+	if (money>=12'd25 && stock0>0)
+	begin
+	products[0] <= 1'b1;		//dispense gum
+	stock0 <= stock0 - 1'b1;	//gum stock - 1
+	money <= money -12'd25;	//money - 25 cents
+	end
+	
+	4'b0010:		//buy candy
+	
+	if (money>=12'd75 && stock1>0)
+	begin
+	products[1] <= 1'b1;		//dispense candy
+	stock1 <= stock1 - 1'b1;	//candy stock - 1
+	money <= money -12'd75;	//money - 75 cents
+	end
+	
+	4'b0100:		//buy chips
+	
+	if (money>=12'd150 && stock2>0)
+	begin
+	products[2] <= 1'b1;		//dispense chips
+	stock2 <= stock2 - 1'b1;	//chips stock - 1
+	money <= money -12'd150;	//money - 150 cents
+	end
+	
+	4'b1000:		//buy drink
+	
+	if (money>=12'd200 && stock1>0)
+	begin
+	products[3] <= 1'b1;		//dispense drink
+	stock3 <= stock3 - 1'b1;	//drink stock - 1
+	money <= money -12'd200;	//money - 200 cents
+	end
+	
+	endcase
+	
+	else if (buy_prev == 1'b1 && buy == 1'b0) //if no product selected, dont dispense products
+	begin
+	products[0] <= 1'b0;
+	products[1] <= 1'b0;
+	products[2] <= 1'b0;
+	products[3] <= 1'b0;
+	end
+	
+	//products out of stock, LEDs out_of_stock[3:0] go high
+	
+	else begin
+	if(stock0==4'b0000)
+	out_of_stock[0] <= 1'b1;
+	else out_of_stock[0] <= 1'b0;
+	
+	if(stock1==4'b0000)
+	out_of_stock[1] <= 1'b1;
+	else out_of_stock[1] <= 1'b0;
+	
+	if(stock2==4'b0000)
+	out_of_stock[2] <= 1'b1;
+	else out_of_stock[2] <= 1'b0;
+	
+	if(stock3==4'b0000)
+	out_of_stock[3] <= 1'b1;
+	else out_of_stock[3] <= 1'b0;
+		
+	
+	//restock products to 15 items.
+	
+	case(load)
+	4'b0001: stock0 <= 4'b1111;
+	4'b0010: stock1 <= 4'b1111;
+	4'b0100: stock2 <= 4'b1111;
+	4'b1000: stock3 <= 4'b1111;
+	endcase
+	
+	end
+	end
+	
+	endmodule
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

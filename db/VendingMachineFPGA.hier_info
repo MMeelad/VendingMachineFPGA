@@ -1,0 +1,551 @@
+|Top_Module_Vending_Machine
+clk => clk.IN5
+btnR => btnR.IN1
+btnB => btnB.IN1
+btnQ => btnQ.IN1
+btnD => btnD.IN1
+sw[0] => sw[0].IN1
+sw[1] => sw[1].IN1
+sw[2] => sw[2].IN1
+sw[3] => sw[3].IN1
+sw[4] => sw[4].IN1
+sw[5] => sw[5].IN1
+sw[6] => sw[6].IN1
+sw[7] => sw[7].IN1
+led[0] << VendingMachineFPGA:VM.port8
+led[1] << VendingMachineFPGA:VM.port8
+led[2] << VendingMachineFPGA:VM.port8
+led[3] << VendingMachineFPGA:VM.port8
+led[4] << VendingMachineFPGA:VM.port9
+led[5] << VendingMachineFPGA:VM.port9
+led[6] << VendingMachineFPGA:VM.port9
+led[7] << VendingMachineFPGA:VM.port9
+seg1[0] << Seven_Seg_Driver:SSD.port6
+seg1[1] << Seven_Seg_Driver:SSD.port6
+seg1[2] << Seven_Seg_Driver:SSD.port6
+seg1[3] << Seven_Seg_Driver:SSD.port6
+seg1[4] << Seven_Seg_Driver:SSD.port6
+seg1[5] << Seven_Seg_Driver:SSD.port6
+seg1[6] << Seven_Seg_Driver:SSD.port6
+seg2[0] << Seven_Seg_Driver:SSD.port7
+seg2[1] << Seven_Seg_Driver:SSD.port7
+seg2[2] << Seven_Seg_Driver:SSD.port7
+seg2[3] << Seven_Seg_Driver:SSD.port7
+seg2[4] << Seven_Seg_Driver:SSD.port7
+seg2[5] << Seven_Seg_Driver:SSD.port7
+seg2[6] << Seven_Seg_Driver:SSD.port7
+seg3[0] << Seven_Seg_Driver:SSD.port8
+seg3[1] << Seven_Seg_Driver:SSD.port8
+seg3[2] << Seven_Seg_Driver:SSD.port8
+seg3[3] << Seven_Seg_Driver:SSD.port8
+seg3[4] << Seven_Seg_Driver:SSD.port8
+seg3[5] << Seven_Seg_Driver:SSD.port8
+seg3[6] << Seven_Seg_Driver:SSD.port8
+seg4[0] << Seven_Seg_Driver:SSD.port9
+seg4[1] << Seven_Seg_Driver:SSD.port9
+seg4[2] << Seven_Seg_Driver:SSD.port9
+seg4[3] << Seven_Seg_Driver:SSD.port9
+seg4[4] << Seven_Seg_Driver:SSD.port9
+seg4[5] << Seven_Seg_Driver:SSD.port9
+seg4[6] << Seven_Seg_Driver:SSD.port9
+clkLED << Seven_Seg_Driver:SSD.port10
+refundLED << VendingMachineFPGA:VM.port10
+
+
+|Top_Module_Vending_Machine|Debounce:dbnB
+clk => clk.IN4
+pb_1 => pb_1.IN1
+pb_out <= pb_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnB|clock_enable:u1
+Clk_50M => counter[0].CLK
+Clk_50M => counter[1].CLK
+Clk_50M => counter[2].CLK
+Clk_50M => counter[3].CLK
+Clk_50M => counter[4].CLK
+Clk_50M => counter[5].CLK
+Clk_50M => counter[6].CLK
+Clk_50M => counter[7].CLK
+Clk_50M => counter[8].CLK
+Clk_50M => counter[9].CLK
+Clk_50M => counter[10].CLK
+Clk_50M => counter[11].CLK
+Clk_50M => counter[12].CLK
+Clk_50M => counter[13].CLK
+Clk_50M => counter[14].CLK
+Clk_50M => counter[15].CLK
+Clk_50M => counter[16].CLK
+Clk_50M => counter[17].CLK
+Clk_50M => counter[18].CLK
+Clk_50M => counter[19].CLK
+Clk_50M => counter[20].CLK
+Clk_50M => counter[21].CLK
+Clk_50M => counter[22].CLK
+Clk_50M => counter[23].CLK
+Clk_50M => counter[24].CLK
+Clk_50M => counter[25].CLK
+Clk_50M => counter[26].CLK
+slow_clk_en <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnB|my_dff_en:d0
+DFF_CLOCK => Q~reg0.CLK
+clock_enable => Q~reg0.ENA
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnB|my_dff_en:d1
+DFF_CLOCK => Q~reg0.CLK
+clock_enable => Q~reg0.ENA
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnB|my_dff_en:d2
+DFF_CLOCK => Q~reg0.CLK
+clock_enable => Q~reg0.ENA
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnQ
+clk => clk.IN4
+pb_1 => pb_1.IN1
+pb_out <= pb_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnQ|clock_enable:u1
+Clk_50M => counter[0].CLK
+Clk_50M => counter[1].CLK
+Clk_50M => counter[2].CLK
+Clk_50M => counter[3].CLK
+Clk_50M => counter[4].CLK
+Clk_50M => counter[5].CLK
+Clk_50M => counter[6].CLK
+Clk_50M => counter[7].CLK
+Clk_50M => counter[8].CLK
+Clk_50M => counter[9].CLK
+Clk_50M => counter[10].CLK
+Clk_50M => counter[11].CLK
+Clk_50M => counter[12].CLK
+Clk_50M => counter[13].CLK
+Clk_50M => counter[14].CLK
+Clk_50M => counter[15].CLK
+Clk_50M => counter[16].CLK
+Clk_50M => counter[17].CLK
+Clk_50M => counter[18].CLK
+Clk_50M => counter[19].CLK
+Clk_50M => counter[20].CLK
+Clk_50M => counter[21].CLK
+Clk_50M => counter[22].CLK
+Clk_50M => counter[23].CLK
+Clk_50M => counter[24].CLK
+Clk_50M => counter[25].CLK
+Clk_50M => counter[26].CLK
+slow_clk_en <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnQ|my_dff_en:d0
+DFF_CLOCK => Q~reg0.CLK
+clock_enable => Q~reg0.ENA
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnQ|my_dff_en:d1
+DFF_CLOCK => Q~reg0.CLK
+clock_enable => Q~reg0.ENA
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnQ|my_dff_en:d2
+DFF_CLOCK => Q~reg0.CLK
+clock_enable => Q~reg0.ENA
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnD
+clk => clk.IN4
+pb_1 => pb_1.IN1
+pb_out <= pb_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnD|clock_enable:u1
+Clk_50M => counter[0].CLK
+Clk_50M => counter[1].CLK
+Clk_50M => counter[2].CLK
+Clk_50M => counter[3].CLK
+Clk_50M => counter[4].CLK
+Clk_50M => counter[5].CLK
+Clk_50M => counter[6].CLK
+Clk_50M => counter[7].CLK
+Clk_50M => counter[8].CLK
+Clk_50M => counter[9].CLK
+Clk_50M => counter[10].CLK
+Clk_50M => counter[11].CLK
+Clk_50M => counter[12].CLK
+Clk_50M => counter[13].CLK
+Clk_50M => counter[14].CLK
+Clk_50M => counter[15].CLK
+Clk_50M => counter[16].CLK
+Clk_50M => counter[17].CLK
+Clk_50M => counter[18].CLK
+Clk_50M => counter[19].CLK
+Clk_50M => counter[20].CLK
+Clk_50M => counter[21].CLK
+Clk_50M => counter[22].CLK
+Clk_50M => counter[23].CLK
+Clk_50M => counter[24].CLK
+Clk_50M => counter[25].CLK
+Clk_50M => counter[26].CLK
+slow_clk_en <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnD|my_dff_en:d0
+DFF_CLOCK => Q~reg0.CLK
+clock_enable => Q~reg0.ENA
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnD|my_dff_en:d1
+DFF_CLOCK => Q~reg0.CLK
+clock_enable => Q~reg0.ENA
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Debounce:dbnD|my_dff_en:d2
+DFF_CLOCK => Q~reg0.CLK
+clock_enable => Q~reg0.ENA
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Binary_to_BCD:BCD
+binary[0] => Div0.IN21
+binary[0] => Mod0.IN21
+binary[1] => Div0.IN20
+binary[1] => Mod0.IN20
+binary[2] => Div0.IN19
+binary[2] => Mod0.IN19
+binary[3] => Div0.IN18
+binary[3] => Mod0.IN18
+binary[4] => Div0.IN17
+binary[4] => Mod0.IN17
+binary[5] => Div0.IN16
+binary[5] => Mod0.IN16
+binary[6] => Div0.IN15
+binary[6] => Mod0.IN15
+binary[7] => Div0.IN14
+binary[7] => Mod0.IN14
+binary[8] => Div0.IN13
+binary[8] => Mod0.IN13
+binary[9] => Div0.IN12
+binary[9] => Mod0.IN12
+binary[10] => Div0.IN11
+binary[10] => Mod0.IN11
+binary[11] => Div0.IN10
+binary[11] => Mod0.IN10
+thousands[0] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+thousands[1] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+thousands[2] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+thousands[3] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+hundreds[0] <= Div1.DB_MAX_OUTPUT_PORT_TYPE
+hundreds[1] <= Div1.DB_MAX_OUTPUT_PORT_TYPE
+hundreds[2] <= Div1.DB_MAX_OUTPUT_PORT_TYPE
+hundreds[3] <= Div1.DB_MAX_OUTPUT_PORT_TYPE
+tens[0] <= Div2.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= Div2.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= Div2.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= Div2.DB_MAX_OUTPUT_PORT_TYPE
+ones[0] <= Mod2.DB_MAX_OUTPUT_PORT_TYPE
+ones[1] <= Mod2.DB_MAX_OUTPUT_PORT_TYPE
+ones[2] <= Mod2.DB_MAX_OUTPUT_PORT_TYPE
+ones[3] <= Mod2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|Seven_Seg_Driver:SSD
+clk => clkLED~reg0.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => count[5].CLK
+clk => count[6].CLK
+clk => count[7].CLK
+clk => count[8].CLK
+clk => count[9].CLK
+clk => count[10].CLK
+clk => count[11].CLK
+clk => count[12].CLK
+clk => count[13].CLK
+clk => count[14].CLK
+clk => count[15].CLK
+clk => count[16].CLK
+clk => count[17].CLK
+clk => count[18].CLK
+clk => count[19].CLK
+clk => count[20].CLK
+clk => count[21].CLK
+clk => count[22].CLK
+clk => count[23].CLK
+clk => count[24].CLK
+clk => count[25].CLK
+clk => segclk[0].CLK
+clk => segclk[1].CLK
+clk => segclk[2].CLK
+clk => segclk[3].CLK
+clk => segclk[4].CLK
+clk => segclk[5].CLK
+clk => segclk[6].CLK
+clk => segclk[7].CLK
+clk => segclk[8].CLK
+clk => segclk[9].CLK
+clk => segclk[10].CLK
+clk => segclk[11].CLK
+clk => segclk[12].CLK
+clr => seg4[0]~reg0.ACLR
+clr => seg4[1]~reg0.ACLR
+clr => seg4[2]~reg0.ACLR
+clr => seg4[3]~reg0.ACLR
+clr => seg4[4]~reg0.ACLR
+clr => seg4[5]~reg0.ACLR
+clr => seg4[6]~reg0.PRESET
+clr => seg3[0]~reg0.ACLR
+clr => seg3[1]~reg0.ACLR
+clr => seg3[2]~reg0.ACLR
+clr => seg3[3]~reg0.ACLR
+clr => seg3[4]~reg0.ACLR
+clr => seg3[5]~reg0.ACLR
+clr => seg3[6]~reg0.PRESET
+clr => seg2[0]~reg0.ACLR
+clr => seg2[1]~reg0.ACLR
+clr => seg2[2]~reg0.ACLR
+clr => seg2[3]~reg0.ACLR
+clr => seg2[4]~reg0.ACLR
+clr => seg2[5]~reg0.ACLR
+clr => seg2[6]~reg0.PRESET
+clr => seg1[0]~reg0.ACLR
+clr => seg1[1]~reg0.ACLR
+clr => seg1[2]~reg0.ACLR
+clr => seg1[3]~reg0.ACLR
+clr => seg1[4]~reg0.ACLR
+clr => seg1[5]~reg0.ACLR
+clr => seg1[6]~reg0.PRESET
+in1[0] => Decoder3.IN3
+in1[1] => Decoder3.IN2
+in1[2] => Decoder3.IN1
+in1[3] => Decoder3.IN0
+in2[0] => Decoder2.IN3
+in2[1] => Decoder2.IN2
+in2[2] => Decoder2.IN1
+in2[3] => Decoder2.IN0
+in3[0] => Decoder1.IN3
+in3[1] => Decoder1.IN2
+in3[2] => Decoder1.IN1
+in3[3] => Decoder1.IN0
+in4[0] => Decoder0.IN3
+in4[1] => Decoder0.IN2
+in4[2] => Decoder0.IN1
+in4[3] => Decoder0.IN0
+seg1[0] <= seg1[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg1[1] <= seg1[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg1[2] <= seg1[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg1[3] <= seg1[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg1[4] <= seg1[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg1[5] <= seg1[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg1[6] <= seg1[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg2[0] <= seg2[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg2[1] <= seg2[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg2[2] <= seg2[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg2[3] <= seg2[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg2[4] <= seg2[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg2[5] <= seg2[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg2[6] <= seg2[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg3[0] <= seg3[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg3[1] <= seg3[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg3[2] <= seg3[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg3[3] <= seg3[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg3[4] <= seg3[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg3[5] <= seg3[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg3[6] <= seg3[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg4[0] <= seg4[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg4[1] <= seg4[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg4[2] <= seg4[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg4[3] <= seg4[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg4[4] <= seg4[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg4[5] <= seg4[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seg4[6] <= seg4[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clkLED <= clkLED~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top_Module_Vending_Machine|VendingMachineFPGA:VM
+clk => out_of_stock[0]~reg0.CLK
+clk => out_of_stock[1]~reg0.CLK
+clk => out_of_stock[2]~reg0.CLK
+clk => out_of_stock[3]~reg0.CLK
+clk => stock0[0].CLK
+clk => stock0[1].CLK
+clk => stock0[2].CLK
+clk => stock0[3].CLK
+clk => stock1[0].CLK
+clk => stock1[1].CLK
+clk => stock1[2].CLK
+clk => stock1[3].CLK
+clk => stock2[0].CLK
+clk => stock2[1].CLK
+clk => stock2[2].CLK
+clk => stock2[3].CLK
+clk => stock3[0].CLK
+clk => stock3[1].CLK
+clk => stock3[2].CLK
+clk => stock3[3].CLK
+clk => products[0]~reg0.CLK
+clk => products[1]~reg0.CLK
+clk => products[2]~reg0.CLK
+clk => products[3]~reg0.CLK
+clk => money[0]~reg0.CLK
+clk => money[1]~reg0.CLK
+clk => money[2]~reg0.CLK
+clk => money[3]~reg0.CLK
+clk => money[4]~reg0.CLK
+clk => money[5]~reg0.CLK
+clk => money[6]~reg0.CLK
+clk => money[7]~reg0.CLK
+clk => money[8]~reg0.CLK
+clk => money[9]~reg0.CLK
+clk => money[10]~reg0.CLK
+clk => money[11]~reg0.CLK
+clk => quarter_prev.CLK
+clk => dollar_prev.CLK
+clk => buy_prev.CLK
+clk => refundLED~reg0.CLK
+reset => money.OUTPUTSELECT
+reset => money.OUTPUTSELECT
+reset => money.OUTPUTSELECT
+reset => money.OUTPUTSELECT
+reset => money.OUTPUTSELECT
+reset => money.OUTPUTSELECT
+reset => money.OUTPUTSELECT
+reset => money.OUTPUTSELECT
+reset => money.OUTPUTSELECT
+reset => money.OUTPUTSELECT
+reset => money.OUTPUTSELECT
+reset => money.OUTPUTSELECT
+reset => stock3.OUTPUTSELECT
+reset => stock3.OUTPUTSELECT
+reset => stock3.OUTPUTSELECT
+reset => stock3.OUTPUTSELECT
+reset => stock2.OUTPUTSELECT
+reset => stock2.OUTPUTSELECT
+reset => stock2.OUTPUTSELECT
+reset => stock2.OUTPUTSELECT
+reset => stock1.OUTPUTSELECT
+reset => stock1.OUTPUTSELECT
+reset => stock1.OUTPUTSELECT
+reset => stock1.OUTPUTSELECT
+reset => stock0.OUTPUTSELECT
+reset => stock0.OUTPUTSELECT
+reset => stock0.OUTPUTSELECT
+reset => stock0.OUTPUTSELECT
+reset => refundLED~reg0.DATAIN
+reset => out_of_stock[2]~reg0.ENA
+reset => out_of_stock[1]~reg0.ENA
+reset => out_of_stock[0]~reg0.ENA
+reset => out_of_stock[3]~reg0.ENA
+reset => products[0]~reg0.ENA
+reset => products[1]~reg0.ENA
+reset => products[2]~reg0.ENA
+reset => products[3]~reg0.ENA
+quarter => always0.IN1
+quarter => quarter_prev.DATAIN
+dollar => always0.IN1
+dollar => dollar_prev.DATAIN
+select[0] => Decoder0.IN3
+select[0] => Mux0.IN7
+select[0] => Mux1.IN7
+select[0] => Mux2.IN7
+select[0] => Mux3.IN7
+select[0] => Mux4.IN7
+select[0] => Mux5.IN7
+select[0] => Mux6.IN7
+select[0] => Mux7.IN7
+select[0] => Mux8.IN7
+select[0] => Mux9.IN6
+select[0] => Mux10.IN6
+select[0] => Mux11.IN5
+select[1] => Decoder0.IN2
+select[1] => Mux0.IN6
+select[1] => Mux1.IN6
+select[1] => Mux2.IN6
+select[1] => Mux3.IN6
+select[1] => Mux4.IN6
+select[1] => Mux5.IN6
+select[1] => Mux6.IN6
+select[1] => Mux7.IN6
+select[1] => Mux8.IN6
+select[1] => Mux9.IN5
+select[1] => Mux10.IN5
+select[1] => Mux11.IN4
+select[2] => Decoder0.IN1
+select[2] => Mux0.IN5
+select[2] => Mux1.IN5
+select[2] => Mux2.IN5
+select[2] => Mux3.IN5
+select[2] => Mux4.IN5
+select[2] => Mux5.IN5
+select[2] => Mux6.IN5
+select[2] => Mux7.IN5
+select[2] => Mux8.IN5
+select[2] => Mux9.IN4
+select[2] => Mux10.IN4
+select[2] => Mux11.IN3
+select[3] => Decoder0.IN0
+select[3] => Mux0.IN4
+select[3] => Mux1.IN4
+select[3] => Mux2.IN4
+select[3] => Mux3.IN4
+select[3] => Mux4.IN4
+select[3] => Mux5.IN4
+select[3] => Mux6.IN4
+select[3] => Mux7.IN4
+select[3] => Mux8.IN4
+select[3] => Mux9.IN3
+select[3] => Mux10.IN3
+select[3] => Mux11.IN2
+buy => always0.IN1
+buy => buy_prev.DATAIN
+buy => always0.IN1
+load[0] => Decoder1.IN3
+load[1] => Decoder1.IN2
+load[2] => Decoder1.IN1
+load[3] => Decoder1.IN0
+money[0] <= money[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+money[1] <= money[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+money[2] <= money[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+money[3] <= money[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+money[4] <= money[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+money[5] <= money[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+money[6] <= money[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+money[7] <= money[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+money[8] <= money[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+money[9] <= money[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+money[10] <= money[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+money[11] <= money[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+products[0] <= products[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+products[1] <= products[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+products[2] <= products[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+products[3] <= products[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out_of_stock[0] <= out_of_stock[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out_of_stock[1] <= out_of_stock[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out_of_stock[2] <= out_of_stock[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out_of_stock[3] <= out_of_stock[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+refundLED <= refundLED~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
